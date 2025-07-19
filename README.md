@@ -1,3 +1,9 @@
+# TESTING
+
+This is a testing branch for [draft v8](https://www.ietf.org/archive/id/draft-connolly-cfrg-xwing-kem-08.html) of an HPKE _hybrid post-quantum_ ciphersuite. In short, this ciphersuite, X-Wing, does both X25519 and [ML-KEM-768](https://csrc.nist.gov/pubs/fips/203/final) encapsulation/decapsulation, and uses _both_ shared secrets to establish a secure session. This construction is secure so long as at least one of its components, X25519 or ML-KEM, is secure.
+
+**Do NOT use this branch for anything other than testing**
+
 rust-hpke
 =========
 [![Version](https://img.shields.io/crates/v/hpke.svg)](https://crates.io/crates/hpke)

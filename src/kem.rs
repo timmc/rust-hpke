@@ -1,5 +1,9 @@
 //! Traits and structs for key encapsulation mechanisms
 
+// We allow ambiguous ::* exports because every KEM exports a doc(hidden) type called EncappedKey.
+// The user never sees it, but the compiler still thinks it's ambiguous.
+#![allow(ambiguous_glob_reexports)]
+
 use crate::{Deserializable, HpkeError, Serializable};
 
 use core::fmt::Debug;
@@ -10,6 +14,11 @@ use zeroize::Zeroize;
 
 mod dhkem;
 pub use dhkem::*;
+
+#[cfg(feature = "x-wing")]
+pub(crate) mod xwing;
+#[cfg(feature = "x-wing")]
+pub use xwing::*;
 
 /// Represents authenticated encryption functionality
 pub trait Kem: Sized {
@@ -33,6 +42,8 @@ pub trait Kem: Sized {
 
     /// The algorithm identifier for a KEM implementation
     const KEM_ID: u16;
+
+    // DeriveKeyPair defined in RFC 9180 §7.1.3
 
     /// Deterministically derives a keypair from the given input keying material
     ///
