@@ -15,9 +15,9 @@ use zeroize::Zeroize;
 mod dhkem;
 pub use dhkem::*;
 
-#[cfg(feature = "x-wing")]
+//#[cfg(feature = "x-wing")]
 pub(crate) mod xwing;
-#[cfg(feature = "x-wing")]
+//#[cfg(feature = "x-wing")]
 pub use xwing::*;
 
 /// Represents authenticated encryption functionality

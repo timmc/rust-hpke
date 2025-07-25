@@ -16,7 +16,7 @@ categories = ["cryptography", "no-std"]
 # "p384" enables the use of ECDH-NIST-P384 as a KEM
 # "x25519" enables the use of the X25519 as a KEM
 # "x-wing" enables the use of X-Wing as a KEM
-default = ["alloc", "p256", "x25519"]
+default = ["alloc", "p256", "x25519", "x-wing"]
 x25519 = ["dep:x25519-dalek"]
 p384 = ["dep:p384"]
 p256 = ["dep:p256"]

@@ -18,7 +18,7 @@
 use hpke::{
     aead::{AeadTag, ChaCha20Poly1305},
     kdf::HkdfSha384,
-    kem::X25519HkdfSha256,
+    kem::XWing,
     Deserializable, Kem as KemTrait, OpModeR, OpModeS, Serializable,
 };
 
@@ -27,7 +27,7 @@ use rand::{rngs::StdRng, SeedableRng};
 const INFO_STR: &[u8] = b"example session";
 
 // These are the only algorithms we're gonna use for this example
-type Kem = X25519HkdfSha256;
+type Kem = XWing;
 type Aead = ChaCha20Poly1305;
 type Kdf = HkdfSha384;
 
