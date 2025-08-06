@@ -175,7 +175,7 @@ impl KemTrait for XWing {
         // Note that this does not involve LabeledExtract/LabeledExpand,
         // unlike the other HPKE specs.
 
-        let mut kdf_out = [0u8; 32];
+        let mut kdf_out = [0u8; DECAPSULATION_KEY_SIZE];
         let mut kdf_hasher = Shake256::default();
         kdf_hasher.update(ikm);
         kdf_hasher.finalize_xof_into(&mut kdf_out);
